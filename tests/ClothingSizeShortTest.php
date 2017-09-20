@@ -12,6 +12,9 @@ class ClothingSizeShortTest extends PHPUnit\Framework\TestCase
         $this->app = $app;
     }
 
+    /**
+     * Test the correct sorting of CLOTHING_SHORT type
+     */
     public function testCorrectSort()
     {
         $sizes = [
@@ -22,7 +25,7 @@ class ClothingSizeShortTest extends PHPUnit\Framework\TestCase
             new \App\Model\Size('AAA', 'XL'),
         ];
 
-        $this->app['CLOTHING_SHORT']->sort($sizes);
+        $sortedSizes = $this->app['CLOTHING_SHORT']->sort($sizes);
 
         $this->assertEquals([
             new \App\Model\Size('AAA', 'S'),
@@ -30,6 +33,6 @@ class ClothingSizeShortTest extends PHPUnit\Framework\TestCase
             new \App\Model\Size('AAA', 'L'),
             new \App\Model\Size('AAA', 'XL'),
             new \App\Model\Size('AAA', 'XXL'),
-        ], $sizes);
+        ], $sortedSizes);
     }
 }

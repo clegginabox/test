@@ -60,14 +60,6 @@ class Product
     }
 
     /**
-     * @return mixed
-     */
-    public function size(): string
-    {
-        return $this->sizes[0][0];
-    }
-
-    /**
      * @return string
      */
     public function sizeSort(): string

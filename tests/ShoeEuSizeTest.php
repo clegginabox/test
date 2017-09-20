@@ -13,17 +13,20 @@ class ShoeEuSizeTest extends PHPUnit\Framework\TestCase
         $this->app = $app;
     }
 
+    /**
+     * Test correcting sorting of SHOE_EU type
+     */
     public function testCorrectSort()
     {
         $sizes = [
             new \App\Model\Size('AAA', '45'),
-            new \App\Model\Size('AAA', '21'),
             new \App\Model\Size('AAA', '35'),
+            new \App\Model\Size('AAA', '21'),
             new \App\Model\Size('AAA', '20'),
             new \App\Model\Size('AAA', '50'),
         ];
 
-        $this->app['SHOE_EU']->sort($sizes);
+        $sortedSizes = $this->app['SHOE_EU']->sort($sizes);
 
         $this->assertEquals([
             new \App\Model\Size('AAA', '20'),
@@ -31,6 +34,6 @@ class ShoeEuSizeTest extends PHPUnit\Framework\TestCase
             new \App\Model\Size('AAA', '35'),
             new \App\Model\Size('AAA', '45'),
             new \App\Model\Size('AAA', '50'),
-        ], $sizes);
+        ], $sortedSizes);
     }
 }

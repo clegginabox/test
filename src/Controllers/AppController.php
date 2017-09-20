@@ -10,11 +10,15 @@ class AppController
 {
     public function homeAction(Application $app)
     {
-        $processor = $app['product_processor'];
-        $processor->process(__DIR__ . '/../../products.csv');
+        try {
+            $processor = $app['product_processor'];
+            $processor->process(__DIR__ . '/../../products.csv');
+        } catch (\Exception $e) {
+            return new JsonResponse(['error' => 'Could not load file']);
+        }
 
-        $transformer = new ProductTransformer($processor->collection());
-
-        return new JsonResponse($transformer->transform());
+        return new JsonResponse(
+            (new ProductTransformer($processor->collection()))->transform()
+        );
     }
 }

@@ -47,18 +47,4 @@ class ProductCollection
     {
         return $this->products;
     }
-
-    /**
-     * @return array
-     */
-    public function asArray(): array
-    {
-        $data = [];
-
-        foreach ($this->products() as $product) {
-            $data[] = $product->toArray();
-        }
-
-        return $data;
-    }
 }

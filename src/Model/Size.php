@@ -20,7 +20,7 @@ class Size
      * @param string $sku
      * @param        $size
      */
-    public function __construct(string $sku, $size)
+    public function __construct(string $sku, string $size)
     {
         $this->sku  = $sku;
         $this->size = $size;
@@ -37,7 +37,7 @@ class Size
     /**
      * @return mixed
      */
-    public function size()
+    public function size(): string
     {
         return $this->size;
     }
