@@ -48,7 +48,7 @@ class Size
     public function toArray(): array
     {
         return [
-            'sku'  => $this->sku,
+            'SKU'  => $this->sku,
             'size' => $this->size
         ];
     }

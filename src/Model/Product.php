@@ -89,7 +89,7 @@ class Product
     public function toArray(): array
     {
         $product = [
-            'plu'   => $this->plu,
+            'PLU'   => $this->plu,
             'name'  => $this->name,
         ];
 
