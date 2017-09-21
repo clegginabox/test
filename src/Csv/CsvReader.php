@@ -8,6 +8,13 @@ use Symfony\Component\Validator\Exception\InvalidArgumentException;
 
 class CsvReader
 {
+    /**
+     * Builds a CsvReader
+     *
+     * @param string $filename
+     *
+     * @return Reader
+     */
     public static function build(string $filename)
     {
         if (file_exists($filename)) {
