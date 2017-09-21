@@ -19,9 +19,8 @@ class SizeSortingServiceProvider implements ServiceProviderInterface
         $files     = $finder->files()->notName('*Interface.php');
 
         foreach ($finder->in(__DIR__ . '/../Sizes') as $file) {
-
             $filename    = pathinfo($file->getRelativePathname(), PATHINFO_FILENAME);
-            $serviceName = $inflector->underscore(substr($filename, 0,-4));
+            $serviceName = $inflector->underscore(substr($filename, 0, -4));
             $className   = sprintf('App\Sizes\%s', $filename);
 
             $app[strtoupper($serviceName)] = function() use ($className) {
